@@ -1,47 +1,34 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-      .module('musicInventoryGulp')
-      .service('songLib', songLib);
+    angular
+        .module('musicInventoryGulp')
+        .service('songLib', songLib);
 
-  /** @ngInject */
-  function songLib() {
-    var songs = [
-      {
-        name: 'back in black',
-        genre: 'rock'
-      },
-      {
-        name: 'wide awake',
-        genre: 'pop'
-      },
-      {
-        name: 'money trees',
-        genre: 'rap'
-      }
-    ];
-    return {
+    /** @ngInject */
+    function songLib($http) {
+        var songs = {};
 
-      getSongs: function () {
 
-        return songs;
-      },
+        return {
+            getSongs: function () {
+                return songs;
+            },
 
-      addSong: function (name, genre) {
-        var newSong = {
-          "name": name,
-          "genre": genre
+            addSong: function (name, genre) {
+                var newSong = {
+                    "name": name,
+                    "genre": genre
+                };
+                songs.push(newSong);
+
+
+            },
+            removeSong: function (index) {
+                songs.splice(index, 1);
+            }
+
+
         };
-        songs.push(newSong);
-          
-
-      },
-      removeSong: function (index) {
-        songs.splice(index, 1);
-      }
-
-
-    };
-  }
+    }
 })();

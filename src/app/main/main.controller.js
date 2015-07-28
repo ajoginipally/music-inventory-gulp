@@ -6,8 +6,16 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($scope, songLib) {
+    function MainController($scope, songLib, $http) {
         $scope.genreType = '';
+
+        $http.get('../assets/songs.json').success(function (data) {
+            $scope.songs = data.songs;
+        }).error(function (status) {
+            console.log("there is an error: " + status);
+        });
+
+        $scope.songs = $scope.songs.songs;
 
         $scope.songs = songLib.getSongs();
 

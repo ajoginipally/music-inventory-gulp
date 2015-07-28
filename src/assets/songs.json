@@ -1,0 +1,16 @@
+{
+    "songs": [
+        {
+            "name": "back in black",
+            "genre": "rock"
+      },
+        {
+            "name": "wide awake",
+            "genre": "pop"
+      },
+        {
+            "name": "money trees",
+            "genre": "rap"
+      }
+    ]
+}
