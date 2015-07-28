@@ -3,7 +3,7 @@
 describe('Filter: songfilter', function () {
     var songs;
     // load the filter's module
-    beforeEach(module('musicInventoryApp'));
+    beforeEach(module('musicInventoryGulp'));
 
     // initialize a new instance of the filter before each test
     var songfilter;
