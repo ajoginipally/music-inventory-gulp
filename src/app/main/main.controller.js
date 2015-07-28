@@ -16,8 +16,8 @@
             $scope.name = '';
         };
 
-        $scope.removeSong = function (i) {
-            songLib.removeSong(i);
+        $scope.removeSong = function (index) {
+            songLib.removeSong(index);
 
         };
     }
