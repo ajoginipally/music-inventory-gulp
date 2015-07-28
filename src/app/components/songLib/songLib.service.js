@@ -34,6 +34,7 @@
           "genre": genre
         };
         songs.push(newSong);
+          
 
       },
       removeSong: function (index) {

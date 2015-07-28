@@ -11,8 +11,9 @@
 
         $scope.songs = songLib.getSongs();
 
-        $scope.addSong = function () {
-            songLib.addSong($scope.song, $scope.genre);
+        $scope.addSong = function (song, genre) {
+            songLib.addSong(song, genre);
+            $scope.name = '';
         };
 
         $scope.removeSong = function (i) {
