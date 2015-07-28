@@ -1,7 +1,7 @@
 <h1>Your New Song</h1>
     <form>
         <div class="row">
-            <input type="text" ng-model="name" placeholder="addSong" class="form-control">
+            <input type="text" ng-model="name" placeholder="addSong" class="form-control your-song">
             <div class="btn-group add-buttons">
                 <button type="button" class="btn btn-danger" ng-click="addSong(name,'rock')">Add Rock Song</button>
                 <button type="button" class="btn btn-warning" ng-click="addSong(name,'rap')">Add Rap Song</button>
@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="input-group each-song" ng-repeat="song in songs | songfilter:genreType track by $index">
-                <input type="text" ng-model="song.name" class="form-control" />
+                <input type="text" ng-model="song.name" class="form-control"/>
                 <div class="input-group-btn">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                         {{ song.genre }}
