@@ -1,7 +1,6 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('musicInventoryGulp', ['ui.bootstrap']);
-
+    angular
+        .module('musicInventoryGulp', ['ngRoute', 'ui.bootstrap']);
 })();

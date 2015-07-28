@@ -1,22 +1,23 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('musicInventoryGulp')
-    .controller('MainController', MainController);
+    angular
+        .module('musicInventoryGulp')
+        .controller('MainController', MainController);
 
-  /** @ngInject */
-  function MainController($scope, songLib) {
+    /** @ngInject */
+    function MainController($scope, songLib) {
+        $scope.genreType = '';
 
-    $scope.songs = songLib.getSongs();
+        $scope.songs = songLib.getSongs();
 
-    $scope.addSong = function(){
-      songLib.addSong($scope.song, $scope.genre);
-    };
+        $scope.addSong = function () {
+            songLib.addSong($scope.song, $scope.genre);
+        };
 
-    $scope.removeSong = function(i){
-      songLib.removeSong(i);
+        $scope.removeSong = function (i) {
+            songLib.removeSong(i);
 
-    };
-  }
+        };
+    }
 })();
