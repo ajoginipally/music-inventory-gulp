@@ -26,29 +26,33 @@
 
 
         describe("function: addSong(song, genre)", function () {
-            beforeEach(function () {
-                spyOn(songLib, 'addSong').and.callFake(function () {
+          beforeEach(function () {
+           expect(songLib.getSongs().length).toBe(3);
+           /*     spyOn(songLib, 'addSong').and.callFake(function () {
                     return;
-                });
+                });*/
             });
 
             it('should call the addSong function when the button is pressed', function () {
                 scope.addSong("lean on", "pop");
-                expect(songLib.addSong).toHaveBeenCalled();
+              expect(songLib.getSongs().length).toBe(4);
+              expect(songLib.getSongs()[3].name).toBe('lean on');
+              expect(songLib.getSongs()[3].genre).toBe('pop');
+
             });
 
         });
 
         describe("function: removeSong(i)", function () {
-            beforeEach(function () {
-                spyOn(songLib, 'removeSong').and.callFake(function () {
-                    return;
-                });
-            });
+          beforeEach(function () {
+            expect(songLib.getSongs().length).toBe(3);
+
+          });
 
             it('should call the removeSong function when the button is pressed', function () {
                 scope.removeSong(1);
-                expect(songLib.removeSong).toHaveBeenCalled();
+                expect(songLib.getSongs().length).toBe(2);
+                expect(songLib.getSongs()[1].name).toBe('money trees');
             });
 
         });
