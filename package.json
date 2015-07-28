@@ -1,7 +1,9 @@
 {
   "name": "musicInventoryGulp",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
   "scripts": {
     "test": "gulp test"
   },
