@@ -1,21 +1,18 @@
-<div class="container-fluid">
-    <h1>Your New Song</h1>
+<h1>Your New Song</h1>
     <form>
         <div class="row">
-            <input type="text" ng-model="song" placeholder="addSong" class="form-control">
+            <input type="text" ng-model="name" placeholder="addSong" class="form-control">
             <div class="btn-group add-buttons">
-                <button type="button" class="btn btn-danger" ng-click="addSong(song,'rock')">Add Rock Song</button>
-                <button type="button" class="btn btn-warning" ng-click="addSong(song,'rap')">Add Rap Song</button>
-                <button type="button" class="btn btn-success" ng-click="addSong(song,'pop')">Add Pop Song</button>
+                <button type="button" class="btn btn-danger" ng-click="addSong(name,'rock')">Add Rock Song</button>
+                <button type="button" class="btn btn-warning" ng-click="addSong(name,'rap')">Add Rap Song</button>
+                <button type="button" class="btn btn-success" ng-click="addSong(name,'pop')">Add Pop Song</button>
             </div>
         </div>
     </form>
-    <!-- <p class="form-group" ng-repeat="song in songs track by $index">
-        <input type="text" ng-model="song" class="form-control">
-    </p>-->
+
     <div class="row">
         <div class="col-xs-12">
-            <div class="input-group each-song" ng-repeat="song in songs | songfilter track by $index">
+            <div class="input-group each-song" ng-repeat="song in songs track by $index">
                 <input type="text" ng-model="song.name" class="form-control" />
                 <div class="dropdown input-group-btn">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -23,9 +20,9 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a ng-click="song.genre = 'rock'">Rock</a></li>
-                        <li><a ng-click="song.genre = 'rap'">Rap</a></li>
-                        <li><a ng-click="song.genre = 'pop'">Pop</a></li>
+                        <li><a ng-click="song.genreType = 'rock'">Rock</a></li>
+                        <li><a ng-click="song.genreType = 'rap'">Rap</a></li>
+                        <li><a ng-click="song.genreType = 'pop'">Pop</a></li>
                     </ul>
 
                 </div>
@@ -37,7 +34,7 @@
     </div>
 
     <div class="row">
-        <div class="btn-group add-buttons filter-buttons" class="col-xs-12">
+        <div class="btn-group add-buttons filter-buttons col-xs-12">
             <button type="button" class="btn btn-danger" ng-click="genreType = 'rock'">Filter Rock Songs</button>
             <button type="button" class="btn btn-warning" ng-click="genreType = 'rap'">Filter Rap Songs</button>
             <button type="button" class="btn btn-success" ng-click="genreType = 'pop'">Filter Pop Songs</button>

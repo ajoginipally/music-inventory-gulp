@@ -8,7 +8,7 @@
  * # switchcase
  * Filter in the musicInventoryApp.
  */
-angular.module('musicInventoryApp')
+angular.module('musicInventoryGulp')
     .filter('songfilter', function () {
             return function (songs, genreFilter) {
                 var tmp = [];
