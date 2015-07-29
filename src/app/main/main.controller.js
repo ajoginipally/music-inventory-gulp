@@ -6,26 +6,24 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($scope, songLib, $http) {
+    function MainController($scope, songLib) {
         $scope.genreType = '';
 
-        $http.get('../assets/songs.json').success(function (data) {
-            $scope.songs = data.songs;
-        }).error(function (status) {
-            console.log("there is an error: " + status);
+        songLib.getSongsInitial().then(function(response){
+          $scope.songs = response.data.songs;
         });
 
-        $scope.songs = $scope.songs.songs;
-
-        $scope.songs = songLib.getSongs();
+       $scope.songs = songLib.getSongs();
 
         $scope.addSong = function (song, genre) {
             songLib.addSong(song, genre);
             $scope.name = '';
+            $scope.songs = songLib.getSongs();
         };
 
         $scope.removeSong = function (index) {
             songLib.removeSong(index);
+            $scope.songs = songLib.getSongs();
 
         };
     }

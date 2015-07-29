@@ -7,16 +7,37 @@
   describe('Service: songLib', function(){
 
     beforeEach(module('musicInventoryGulp'));
-    var  songLib;
-    beforeEach(inject(function (_songLib_) {
+    var  songLib, httpBackend, http;
+    beforeEach(inject(function (_songLib_, $httpBackend, $http) {
 
       songLib = _songLib_;
-
+      http = $http;
+      httpBackend = $httpBackend;
+      httpBackend.when("GET", "../assets/songs.json").respond(
+        {
+          "songs": [
+            {
+              "name": "back in black",
+              "genre": "rock"
+            },
+            {
+              "name": "wide awake",
+              "genre": "pop"
+            },
+            {
+              "name": "money trees",
+              "genre": "rap"
+            }
+          ]
+        });
     }));
 
-    it('should initially define three songs', function(){
-      expect(songLib.getSongs().length).toBe(3);
+    it('should define an empty object called songs', function(){
+      var obj = {};
+      expect(songLib.getSongs()).toEqual(obj);
     });
+
+
 
     /*
 
@@ -24,10 +45,26 @@
 
      */
 
+
+
   describe('Functions:', function(){
     beforeEach(inject(function(){
+      httpBackend.expectGET('../assets/songs.json');
+      songLib.getSongsInitial();
+      httpBackend.flush();
       expect(songLib.getSongs().length).toBe(3);
     }));
+
+    describe('Function: getSongsInitial', function(){
+      it('should make a GET request for three songs', function(){
+        httpBackend.expectGET('../assets/songs.json');
+        songLib.getSongsInitial();
+        httpBackend.flush();
+        expect(songLib.getSongs().length).toBe(3);
+
+      });
+    });
+
       describe('Function: getSongs()', function(){
         it('should return the current list of songs', function(){
           expect(songLib.getSongs()[0].name).toBe('back in black');
