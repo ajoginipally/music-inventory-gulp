@@ -1,11 +1,17 @@
 <h1>Your New Song</h1>
 <form>
     <div class="row">
-        <input type="text" ng-model="name" placeholder="addSong" class="form-control your-song">
-        <div class="btn-group add-buttons">
-            <button type="button" class="btn btn-danger" ng-click="addSong(name,'rock')">Add Rock Song</button>
-            <button type="button" class="btn btn-warning" ng-click="addSong(name,'rap')">Add Rap Song</button>
-            <button type="button" class="btn btn-success" ng-click="addSong(name,'pop')">Add Pop Song</button>
+        <div class="col-xs-6 col-xs-offset-3">
+            <input type="text" ng-model="name" placeholder="addSong" class="form-control">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-3">
+                    <div class="btn-group add-buttons">
+                        <button type="button" class="btn btn-danger" ng-click="addSong(name,'rock')">Add Rock Song</button>
+                        <button type="button" class="btn btn-warning" ng-click="addSong(name,'rap')">Add Rap Song</button>
+                        <button type="button" class="btn btn-success" ng-click="addSong(name,'pop')">Add Pop Song</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </form>
@@ -33,7 +39,7 @@
 </div>
 
 <div class="row">
-    <div class="btn-group add-buttons filter-buttons col-xs-12">
+    <div class="btn-group add-buttons filter-buttons col-xs-8 col-xs-offset-4">
         <button type="button" class="btn btn-danger" ng-click="genreType = 'rock'">Filter Rock Songs</button>
         <button type="button" class="btn btn-warning" ng-click="genreType = 'rap'">Filter Rap Songs</button>
         <button type="button" class="btn btn-success" ng-click="genreType = 'pop'">Filter Pop Songs</button>
